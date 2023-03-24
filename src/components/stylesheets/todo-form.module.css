@@ -35,6 +35,15 @@
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
+ .todoForm select {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
 .todoForm button[type="submit"] {
   background-color: #0070f3;
   color: #fff;

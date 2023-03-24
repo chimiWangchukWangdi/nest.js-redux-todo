@@ -18,3 +18,8 @@ export enum TodoPriority {
   MEDIUM = "MEDIUM",
   HIGH = "HIGH",
 }
+
+export const TodoCompleted = {
+  YES: "Completed",
+  NO: "In-Progress",
+};

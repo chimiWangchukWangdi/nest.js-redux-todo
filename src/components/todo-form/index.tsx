@@ -1,4 +1,4 @@
-import { TodoModel, TodoPriority } from "@/model";
+import { TodoCompleted, TodoModel, TodoPriority } from "@/model";
 import { useAppDispatch, useAppSelector } from "@/state/store";
 import { todoActions } from "@/state/todoSlice/todo.actions";
 import { todoSelectors } from "@/state/todoSlice/todo.selectors";
@@ -21,10 +21,9 @@ const TodoForm = ({ isEditMode }: { isEditMode?: boolean }) => {
   }, [id]);
 
   const onSubmit = async (values: TodoModel) => {
+    debugger;
     const payload: TodoModel = {
       ...values,
-      completed: "in progress",
-      priority: TodoPriority.LOW,
       createdAt: new Date().toString(),
     };
     await dispatch(
@@ -35,7 +34,7 @@ const TodoForm = ({ isEditMode }: { isEditMode?: boolean }) => {
 
   return (
     <div>
-      <div className={style.todoTitle}>
+      <div>
         <h3>Todo Form</h3>
       </div>
       <div className={style.todoForm}>
@@ -54,20 +53,11 @@ const TodoForm = ({ isEditMode }: { isEditMode?: boolean }) => {
                 name="title"
                 render={({ input, meta }) => (
                   <div>
-                    <div className="input-group mb-3">
-                      <label className="input-group-text" id="basic-addon2">
-                        Title
-                      </label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        {...input}
-                        placeholder="Title"
-                      />
+                    <div>
+                      <label>Title</label>
+                      <input type="text" {...input} placeholder="Title" />
                     </div>
-                    {meta.touched && meta.error && (
-                      <div className="mb-2">{meta.error}</div>
-                    )}
+                    {meta.touched && meta.error && <div>{meta.error}</div>}
                   </div>
                 )}
               />
@@ -75,18 +65,17 @@ const TodoForm = ({ isEditMode }: { isEditMode?: boolean }) => {
                 name="priority"
                 render={({ input, meta }) => (
                   <div>
-                    <div className="input-group mb-3">
-                      <label className="input-group-text">Priority</label>
-                      <input
-                        className="form-control"
-                        placeholder="priority"
-                        type="text"
-                        {...input}
-                      />
+                    <div>
+                      <label>Priority</label>
+                      <select {...input}>
+                        {Object.values(TodoPriority).map((priority) => (
+                          <option key={priority} value={priority}>
+                            {priority}
+                          </option>
+                        ))}
+                      </select>
                     </div>
-                    {meta.touched && meta.error && (
-                      <div className="mb-2">{meta.error}</div>
-                    )}
+                    {meta.touched && meta.error && <div>{meta.error}</div>}
                   </div>
                 )}
               />
@@ -94,25 +83,33 @@ const TodoForm = ({ isEditMode }: { isEditMode?: boolean }) => {
                 name="description"
                 render={({ input, meta }) => (
                   <div>
-                    <div className="input-group mb-3">
-                      <label className="input-group-text">Description</label>
-                      <textarea
-                        className="form-control"
-                        placeholder="description"
-                        {...input}
-                      />
+                    <div>
+                      <label>Description</label>
+                      <textarea placeholder="description" {...input} />
                     </div>
-                    {meta.touched && meta.error && (
-                      <div className="mb-2">{meta.error}</div>
-                    )}
+                    {meta.touched && meta.error && <div>{meta.error}</div>}
                   </div>
                 )}
               />
-              <button
-                type="submit"
-                className="btn btn-primary"
-                disabled={submitting}
-              >
+              <Field
+                name="completed"
+                render={({ input, meta }) => (
+                  <div>
+                    <div>
+                      <label>Completed</label>
+                      <select {...input}>
+                        {Object.values(TodoCompleted).map((completed) => (
+                          <option key={completed} value={completed}>
+                            {completed}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    {meta.touched && meta.error && <div>{meta.error}</div>}
+                  </div>
+                )}
+              />
+              <button type="submit" disabled={submitting}>
                 {isEditMode ? "Update" : "Submit"}
               </button>
             </form>
