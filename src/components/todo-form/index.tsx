@@ -7,19 +7,55 @@ import { useEffect } from "react";
 import { Field, Form } from "react-final-form";
 import style from "../stylesheets/todo-form.module.css";
 
+/**
+ * Represents a form component for creating and updating a to-do item.
+ *
+ * @param {object} props - The props object containing the isEditMode flag.
+ * @param {boolean} props.isEditMode - The flag to indicate if the form is in edit mode.
+ * @returns {JSX.Element} The TodoForm component.
+ */
 const TodoForm = ({ isEditMode }: { isEditMode?: boolean }) => {
+
+  /**
+   * The Redux dispatch hook.
+   */
   const dispatch = useAppDispatch();
+
+  /**
+   * The Next.js router hook.
+   */
   const router = useRouter();
+
+  /**
+   * The id of the to-do item being edited.
+   */
   const { id } = router.query;
+
+   /**
+   * The selector hook to retrieve to-do entities.
+   */
   const selectTodoEntities = useAppSelector(todoSelectors.selectTodoEntities);
+
+  /**
+   * The selector hook to retrieve the selected to-do item.
+   */
   const selectedTodo = useAppSelector(todoSelectors.selectedTodo);
 
+  /**
+   * The effect hook to fetch the to-do item by id if in edit mode.
+   */
   useEffect(() => {
     if (id && isEditMode && !selectTodoEntities[id as string]) {
       dispatch(todoActions.getTodoById(id as string));
     }
   }, [id]);
 
+  /**
+   * The form submission handler.
+   *
+   * @param {TodoModel} values - The form values as a TodoModel.
+   * @returns {Promise<void>} A promise that resolves when the form is submitted.
+   */
   const onSubmit = async (values: TodoModel) => {
     const payload: TodoModel = {
       ...values,
@@ -31,7 +67,12 @@ const TodoForm = ({ isEditMode }: { isEditMode?: boolean }) => {
     router.push("/");
   };
 
-  const handleCancel = () => {
+  /**
+   * The cancel button click handler.
+   *
+   * @returns {void}
+   */
+  const handleCancel = (): void => {
     router.push("/");
   }
 

@@ -19,17 +19,6 @@ const apiBaseUrl = (function (self, global) {
   return apiBaseUrl;
 })(typeof window !== "undefined" ? window : global, globalThis);
 
-/**
- * Wrapper around window.fetch.
- * Response are wrapped in error or data object for convenience
- */
-/**
- * @param url The api endpoint
- * @param method The http verb
- * @param init{ RequestInit} Fetch api config
- * @param absoluteUrl
- * @param withCredentials
- */
 export const FetchAPI = async <T, E = any>(
   url: string,
   method: RestMethods,

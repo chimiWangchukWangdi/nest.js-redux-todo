@@ -3,6 +3,9 @@ import { commonResponseHandler } from "@/utils";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { UserFacadeService } from "./todo.facade";
 
+/**
+ * Fetches all todos.
+ */
 export const fetchTodo = createAsyncThunk(
   "todo/getTodo",
   async (_, thunkAPI) => {
@@ -10,6 +13,10 @@ export const fetchTodo = createAsyncThunk(
   }
 );
 
+/**
+ * Deletes a todo by id.
+ * @param payload - The id of the todo to delete.
+ */
 export const deleteTodo = createAsyncThunk(
   "todo/deleteTodo",
   async (payload: string, thunkAPI) => {
@@ -20,6 +27,10 @@ export const deleteTodo = createAsyncThunk(
   }
 );
 
+/**
+ * Creates a new todo.
+ * @param payload - The todo to create.
+ */
 export const createTodo = createAsyncThunk(
   "todo/createTodo",
   async (payload: TodoModel, thunkAPI) => {
@@ -30,6 +41,10 @@ export const createTodo = createAsyncThunk(
   }
 );
 
+/**
+ * Updates an existing todo.
+ * @param payload - The todo to update.
+ */
 export const updateTodo = createAsyncThunk(
   "todo/updateTodo",
   async (payload: TodoModel, thunkAPI) => {
@@ -40,6 +55,10 @@ export const updateTodo = createAsyncThunk(
   }
 );
 
+/**
+ * Fetches a todo by id.
+ * @param payload - The id of the todo to fetch.
+ */
 export const getTodoById = createAsyncThunk(
   "todo/get todo by id",
   async (payload: string, thunkAPI) => {
