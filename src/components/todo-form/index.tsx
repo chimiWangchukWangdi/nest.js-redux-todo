@@ -21,7 +21,6 @@ const TodoForm = ({ isEditMode }: { isEditMode?: boolean }) => {
   }, [id]);
 
   const onSubmit = async (values: TodoModel) => {
-    debugger;
     const payload: TodoModel = {
       ...values,
       createdAt: new Date().toString(),
@@ -32,11 +31,12 @@ const TodoForm = ({ isEditMode }: { isEditMode?: boolean }) => {
     router.push("/");
   };
 
+  const handleCancel = () => {
+    router.push("/");
+  }
+
   return (
     <div>
-      <div>
-        <h3>Todo Form</h3>
-      </div>
       <div className={style.todoForm}>
         <Form
           onSubmit={onSubmit}
@@ -109,9 +109,14 @@ const TodoForm = ({ isEditMode }: { isEditMode?: boolean }) => {
                   </div>
                 )}
               />
-              <button type="submit" disabled={submitting}>
-                {isEditMode ? "Update" : "Submit"}
-              </button>
+              <div className={style.buttonContainer}>
+                <button type="submit" disabled={submitting}>
+                  {isEditMode ? "Update" : "Submit"}
+                </button>
+                <button type="button" onClick={handleCancel}>
+                 Cancel
+                </button>
+              </div>
             </form>
           )}
         </Form>

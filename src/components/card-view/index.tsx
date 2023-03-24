@@ -19,17 +19,17 @@ const CardView = ({ item }: { item: TodoModel }) => {
       <p className={style.cardBody}>Description: {item?.description}</p>
       <p className={style.cardBody}>Completed: {item?.completed}</p>
       <div className={style.buttonContainer}>
+      <button
+          className={style.buttonEdit}
+          onClick={() => router.push("/edit-todo/" + item?.id)}
+        >
+          Edit
+        </button>
         <button
           className={style.buttonDelete}
           onClick={() => deleteTodo(item?.id)}
         >
           Delete
-        </button>
-        <button
-          className={style.buttonEdit}
-          onClick={() => router.push("/edit-todo/" + item?.id)}
-        >
-          Edit
         </button>
       </div>
     </div>
