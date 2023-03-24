@@ -3,42 +3,41 @@
     {
       "title": "Title-1",
       "description": "This is title one",
-      "completed": "in progress",
-      "priority": "LOW",
-      "createdAt": "Fri Mar 24 2023 10:31:20 GMT+0600 (Bhutan Time)",
+      "completed": "Completed",
+      "priority": "MEDIUM",
+      "createdAt": "Fri Mar 24 2023 12:50:03 GMT+0600 (Bhutan Time)",
       "id": 1
     },
     {
       "title": "Title-2",
       "description": "This is title two",
       "completed": "in progress",
-      "priority": "LOW",
-      "createdAt": "Fri Mar 24 2023 10:31:41 GMT+0600 (Bhutan Time)",
-      "id": 2
+      "priority": "MEDIUM",
+      "createdAt": "Fri Mar 24 2023 19:14:10 GMT+0600 (Bhutan Time)",
+      "id": 3
     },
     {
       "title": "Title-3",
       "description": "This is title three",
       "completed": "in progress",
       "priority": "LOW",
-      "createdAt": "Fri Mar 24 2023 10:31:55 GMT+0600 (Bhutan Time)",
-      "id": 3
+      "createdAt": "Fri Mar 24 2023 19:14:21 GMT+0600 (Bhutan Time)",
+      "id": 4
     },
     {
       "title": "Title-4",
       "description": "This is title four",
-      "completed": "in progress",
-      "priority": "LOW",
-      "createdAt": "Fri Mar 24 2023 10:32:06 GMT+0600 (Bhutan Time)",
-      "id": 4
+      "completed": "Completed",
+      "priority": "HIGH",
+      "createdAt": "Fri Mar 24 2023 19:14:31 GMT+0600 (Bhutan Time)",
+      "id": 5
     },
     {
       "title": "Title-5",
-      "description": "This is title five",
-      "completed": "in progress",
-      "priority": "LOW",
-      "createdAt": "Fri Mar 24 2023 10:35:19 GMT+0600 (Bhutan Time)",
-      "id": 5
+      "description": "This is title six",
+      "completed": "In-Progress",
+      "createdAt": "Fri Mar 24 2023 19:14:38 GMT+0600 (Bhutan Time)",
+      "id": 6
     }
   ],
   "users": []

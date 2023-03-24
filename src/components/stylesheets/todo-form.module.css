@@ -1,9 +1,3 @@
-.todoTitle {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 15px;
-}
-
 .todoForm {
   max-width: 700px;
   margin: 0 auto;
@@ -35,6 +29,15 @@
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
+ .todoForm select {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
 .todoForm button[type="submit"] {
   background-color: #0070f3;
   color: #fff;
@@ -46,4 +49,22 @@
 
 .todoForm button[type="submit"]:hover {
   background-color: #0071f3aa;
+}
+
+.todoForm button[type="button"] {
+  background-color: #f30000;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.todoForm button[type="button"]:hover {
+  background-color: #f30000aa;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
 }
