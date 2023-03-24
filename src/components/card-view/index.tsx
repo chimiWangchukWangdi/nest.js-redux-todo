@@ -13,23 +13,23 @@ const CardView = ({ item }: { item: TodoModel }) => {
   return (
     <div className={style.cardContainer}>
       <div className={style.cardHeader}>
-        <p className={style.cardTitle}>title: {item?.title}</p>
-        <p>prority: {item?.priority}</p>
+        <p className={style.cardTitle}>Title: {item?.title}</p>
+        <p>Priority: {item?.priority}</p>
       </div>
-      <p className={style.cardBody}>description: {item?.description}</p>
-      <p className={style.cardBody}>completed: {item?.completed}</p>
+      <p className={style.cardBody}>Description: {item?.description}</p>
+      <p className={style.cardBody}>Completed: {item?.completed}</p>
       <div className={style.buttonContainer}>
         <button
           className={style.buttonDelete}
           onClick={() => deleteTodo(item?.id)}
         >
-          delete
+          Delete
         </button>
         <button
           className={style.buttonEdit}
           onClick={() => router.push("/edit-todo/" + item?.id)}
         >
-          edit
+          Edit
         </button>
       </div>
     </div>
