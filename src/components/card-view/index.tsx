@@ -28,7 +28,7 @@ const CardView = ({ item }: { item: TodoModel }) => {
    */
   const router = useRouter();
 
-    /**
+  /**
    * Asynchronous function that dispatches a deleteTodo action with the todo's ID when the user clicks on the "Delete" button.
    *
    * @param {string} id - The ID of the todo to be deleted.
