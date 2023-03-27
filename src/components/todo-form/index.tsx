@@ -31,7 +31,7 @@ const TodoForm = ({ isEditMode }: { isEditMode?: boolean }) => {
    */
   const { id } = router.query;
 
-   /**
+  /**
    * The selector hook to retrieve to-do entities.
    */
   const selectTodoEntities = useAppSelector(todoSelectors.selectTodoEntities);
@@ -85,7 +85,10 @@ const TodoForm = ({ isEditMode }: { isEditMode?: boolean }) => {
             isEditMode
               ? ((selectTodoEntities[id as string] ||
                   selectedTodo) as TodoModel)
-              : {}
+              : {
+                  priority: TodoPriority.LOW,
+                  completed: TodoCompleted.NO,
+                }
           }
         >
           {({ handleSubmit, submitting }) => (
@@ -126,7 +129,10 @@ const TodoForm = ({ isEditMode }: { isEditMode?: boolean }) => {
                   <div>
                     <div>
                       <label>Description</label>
-                      <textarea placeholder="description" {...input} />
+                      <textarea
+                        placeholder="description"
+                        {...input}
+                      />
                     </div>
                     {meta.touched && meta.error && <div>{meta.error}</div>}
                   </div>
